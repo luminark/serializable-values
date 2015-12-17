@@ -1,0 +1,30 @@
+{
+    "name": "luminark/serializable-values",
+    "description": "Luminark Serializable Values package.",
+    "keywords": [
+        "eloquent",
+        "laravel",
+        "luminark",
+        "serializable"
+    ],
+    "require": {
+        "illuminate/database": "5.*",
+        "illuminate/support": "5.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*",
+        "orchestra/testbench": "3.0.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Martin Vrkljan",
+            "email": "mvrkljan@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "Luminark\\SerializableValues\\": "src/"
+        }
+    }
+}
