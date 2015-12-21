@@ -31,6 +31,14 @@ trait HasSerializableValuesTrait
         return array_get($this->original, $key, $default);
     }
     
+    public function fillableFromArray(array $attributes)
+    {
+        return array_merge(
+            parent::fillableFromArray($attributes), 
+            (array) $this->getSerializableAttributes()
+        );
+    }
+    
     public function isFillable($key)
     {
         return in_array($key, $this->getSerializableAttributes())
