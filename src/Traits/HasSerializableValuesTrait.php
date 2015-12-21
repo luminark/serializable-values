@@ -30,19 +30,26 @@ trait HasSerializableValuesTrait
 
         return array_get($this->original, $key, $default);
     }
+    
+    public function isFillable($key)
+    {
+        return in_array($key, $this->getSerializableAttributes())
+            ? true
+            : parent::isFillable($key);
+    }
 
-    public function __get($key)
+    public function getAttribute($key)
     {
         return in_array($key, $this->getSerializableAttributes())
             ? $this->getValue($key)
-            : parent::__get($key);
+            : parent::getAttribute($key);
     }
     
-    public function __set($key, $value)
+    public function setAttribute($key, $value)
     {
         in_array($key, $this->getSerializableAttributes())
             ? $this->setValue($key, $value)
-            : parent::__set($key, $value);
+            : parent::setAttribute($key, $value);
     }
 
     public function getValue($key)
