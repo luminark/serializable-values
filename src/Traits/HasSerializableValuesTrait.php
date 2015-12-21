@@ -35,7 +35,7 @@ trait HasSerializableValuesTrait
     {
         return array_merge(
             parent::fillableFromArray($attributes), 
-            (array) $this->getSerializableAttributes()
+            array_intersect_key($attributes, array_flip($this->getSerializableAttributes()))
         );
     }
     
